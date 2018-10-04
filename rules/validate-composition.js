@@ -1,9 +1,8 @@
-const stylelint = require("stylelint");
-const parseIdentifiers = require("../lib/parse-identifiers");
+const stylelint = require('stylelint');
+const parseIdentifiers = require('../lib/parse-identifiers');
 
-const RULE_NAME = "css-modules/validate-composition";
-const PROP = "composes";
-const START_COLUMN = 3 + `${PROP} `.length;
+const RULE_NAME = 'css-modules/validate-composition';
+const PROP = 'composes';
 
 module.exports = stylelint.createPlugin(RULE_NAME, () => (root, result) => {
   root.walkRules(rule => {
@@ -14,7 +13,7 @@ module.exports = stylelint.createPlugin(RULE_NAME, () => (root, result) => {
         if (!from) {
           const selectors = decl
             .root()
-            .nodes.filter(n => n.type === "rule")
+            .nodes.filter(n => n.type === 'rule')
             .map(n => n.selector)
             .map(s => s.substr(1, s.length));
 

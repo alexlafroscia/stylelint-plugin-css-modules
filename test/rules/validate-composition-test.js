@@ -1,6 +1,6 @@
-import theredoc from "theredoc";
-import testRule from "../helpers/test-rule";
-import validateComposition from "../../rules/validate-composition";
+import theredoc from 'theredoc';
+import testRule from '../helpers/test-rule';
+import validateComposition from '../../rules/validate-composition';
 
 testRule(validateComposition.rule, {
   ruleName: validateComposition.ruleName,
@@ -32,7 +32,7 @@ testRule(validateComposition.rule, {
       message:
         'Composition of unknown class "foo" (' +
         validateComposition.ruleName +
-        ")",
+        ')',
       line: 2
     }
   ]
