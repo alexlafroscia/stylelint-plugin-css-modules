@@ -17,6 +17,14 @@ testRule(validateComposition.rule, {
           composes: foo;
         }
       `
+    },
+    {
+      description: 'A composing class from the global',
+      code: theredoc`
+        .bar {
+          composes: foo from global;
+        }
+      `
     }
   ],
 
