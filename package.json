@@ -9,11 +9,15 @@
     "stylelint-plugin",
     "css-modules"
   ],
+  "engines": {
+    "node": ">=8.3.0"
+  },
   "scripts": {
     "lint": "eslint .",
     "test": "ava"
   },
   "peerDependencies": {
+    "postcss": "^7.0.5",
     "stylelint": "^9.6.0"
   },
   "devDependencies": {

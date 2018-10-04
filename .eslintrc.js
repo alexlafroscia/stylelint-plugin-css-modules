@@ -5,6 +5,14 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:node/recommended'
   ],
+  rules: {
+    'node/no-unsupported-features/node-builtins': [
+      'error',
+      {
+        version: '>=8.0.0'
+      }
+    ]
+  },
   overrides: [
     // All Test-Related Files
     {
@@ -16,8 +24,11 @@ module.exports = {
     // AVA Tests
     {
       files: ['test/**/*-test.js'],
+      env: {
+        es6: true
+      },
       parserOptions: {
-        ecmaVersion: 6,
+        ecmaVersion: 2018,
         sourceType: 'module'
       },
       rules: {
