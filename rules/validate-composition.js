@@ -2,7 +2,10 @@ const path = require('path');
 const stylelint = require('stylelint');
 
 const asyncWalkDecls = require('../lib/async-walk-decls');
-const extractIdentifiers = require('../lib/extract-identifiers');
+const {
+  extractIdentifiersFromFile,
+  extractIdentifiersFromRoot
+} = require('../lib/extract-identifiers');
 const isRelativePath = require('../lib/is-relative-path');
 const isRootPath = require('../lib/is-root-path');
 const parseIdentifiers = require('../lib/parse-identifiers');
@@ -38,11 +41,7 @@ module.exports = stylelint.createPlugin(
       const { identifiers, from } = parseIdentifiers(decl.value);
 
       if (!from) {
-        const selectors = decl
-          .root()
-          .nodes.filter(n => n.type === 'rule')
-          .map(n => n.selector)
-          .map(s => s.substr(1, s.length));
+        const selectors = extractIdentifiersFromRoot(decl.root());
 
         for (let identifier of identifiers) {
           if (!selectors.includes(identifier)) {
@@ -71,7 +70,7 @@ module.exports = stylelint.createPlugin(
             const importFilePath = path.resolve(fileDirectory, from);
 
             try {
-              const validImportIdentifiers = await extractIdentifiers(
+              const validImportIdentifiers = await extractIdentifiersFromFile(
                 importFilePath
               );
 
