@@ -4,7 +4,6 @@ import validateComposition from '../../rules/validate-composition';
 
 testRule(validateComposition.rule, {
   ruleName: validateComposition.ruleName,
-  skipBasicChecks: true,
 
   accept: [
     {
