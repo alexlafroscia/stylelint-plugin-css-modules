@@ -1,0 +1,8 @@
+{
+  "name": "stylelint-plugin-css-modules",
+  "version": "1.0.0",
+  "description": "A Stylelint plugin for validating CSS Modules",
+  "main": "index.js",
+  "author": "Alex LaFroscia <alex@lafroscia.com>",
+  "license": "MIT"
+}
