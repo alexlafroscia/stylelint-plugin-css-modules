@@ -4,5 +4,20 @@
   "description": "A Stylelint plugin for validating CSS Modules",
   "main": "index.js",
   "author": "Alex LaFroscia <alex@lafroscia.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "stylelint-plugin",
+    "css-modules"
+  ],
+  "scripts": {
+    "test": "ava"
+  },
+  "peerDependencies": {
+    "stylelint": "^9.6.0"
+  },
+  "devDependencies": {
+    "ava": "^1.0.0-beta.8",
+    "stylelint": "^9.6.0",
+    "theredoc": "^1.0.0"
+  }
 }
